@@ -1,24 +1,30 @@
 # projekt python lab3
 
-do_zgadniecia = silnik() 
+from silnik import silnik, pobierz_liczby
+from checking import checking
 
-ilosc_rund = 5
-aktualna_runda = 0
+def main():
+    szukane_cyfry = silnik()
+    liczba_rund = 5
 
-lista_zgadywanych = []
+    aktualna_runda = 1
+    while aktualna_runda <= liczba_rund:
+        print("\n===== MASTERMIND =====")
+        print("RUNDA NR ", aktualna_runda)
 
-def interfejs()
-	print("===== MASTERMIND =====")
-	for i < ilosc_rund:
+        pobrane_cyfry = pobierz_liczby()
 
-		ktualne_zgadywanie = pobierz_liczby()
-		
-		checking(do_zgadniecia, aktualne_zgadywanie)
-		
-		if do_zgadniecia == aktualne_zgadywanie:
-			print("WYGRALES!!!")
-		else:
-			print("PROBUJ DALEJ")		 
-		
-	print("PRZEGRALES")
-	
+        print("\n\tWYNIKI")
+        checking(pobrane_cyfry, szukane_cyfry)
+
+        if pobrane_cyfry == szukane_cyfry:
+            print("\n\n=== WYGRAŁEŚ!!! ===")
+            print("Liczba rund: ", aktualna_runda)
+            return 0
+        aktualna_runda += 1
+
+    print("\n\n=== PRZEGRAŁEŚ ===")
+    print("Szukane cyfyr to: ")
+    print(szukane_cyfry)
+
+main()
