@@ -12,6 +12,3 @@ def pobierz_liczby(): # pobieranie przez uzytkownika
         a = int(input("Podaj liczbę: "))
         inp.append(a)
     return inp
-wylosowane = silnik()
-wybor_gracza = pobierz_liczby()
-
